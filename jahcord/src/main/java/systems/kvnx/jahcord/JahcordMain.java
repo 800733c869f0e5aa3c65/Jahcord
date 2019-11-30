@@ -2,9 +2,11 @@ package systems.kvnx.jahcord;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.IOException;
 
 import com.formdev.flatlaf.FlatLaf;
-import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.IntelliJTheme;
+import com.formdev.flatlaf.json.ParseException;
 
 /**
  * 
@@ -15,20 +17,23 @@ import com.formdev.flatlaf.FlatLightLaf;
 
 public class JahcordMain {
 	
-	static String token;
+	private static String token;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException, IOException {
 		
-		FlatLaf theme = new FlatLightLaf();
 		
+		FlatLaf theme = IntelliJTheme.createLaf(JahcordMain.class.getClassLoader().getResourceAsStream("Material Deep Ocean.theme.json"));
 		LoginForm loginForm = new LoginForm(theme);
 		loginForm.addWindowListener(new WindowListener() {
 
 			@Override
-			public void windowActivated(WindowEvent arg0) {}
+			public void windowActivated(WindowEvent arg0) {
+				System.out.println("Login form opened.");
+			}
 
 			@Override
 			public void windowClosed(WindowEvent arg0) {
+//				System.out.println("Login form closed.");
 				token = loginForm.getToken();
 				Login login = new Login(token);
 			}
