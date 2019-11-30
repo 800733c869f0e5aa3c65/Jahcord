@@ -35,5 +35,10 @@
 			<artifactId>JDA</artifactId>
 			<version>4.0.0_68</version>
 		</dependency>
+		<dependency>
+			<groupId>com.formdev</groupId>
+			<artifactId>flatlaf</artifactId>
+			<version>0.20</version>
+		</dependency>
 	</dependencies>
 </project>
