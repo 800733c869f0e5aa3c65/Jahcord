@@ -1,7 +1,12 @@
 package systems.kvnx.jahcord;
 
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.InputStream;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
@@ -26,7 +31,7 @@ public class LoginForm extends JFrame {
 
 	private String token;
 
-	public LoginForm() {
+	public LoginForm() throws FontFormatException, IOException {
 
 		setTitle("Login - Jahcord");
 
@@ -35,13 +40,19 @@ public class LoginForm extends JFrame {
 		content = new JPanel();
 		content.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(content);
+		
+		InputStream is = LoginForm.class.getClassLoader().getResourceAsStream("FiraCode-Regular.ttf");
+		Font fira = Font.createFont(Font.TRUETYPE_FONT, is);
 
 		JLabel lblToken = new JLabel("Token");
+		lblToken.setFont(fira.deriveFont(12f));
 
 		textFieldToken = new JTextField();
 		textFieldToken.setColumns(10);
+		textFieldToken.setFont(fira.deriveFont(12f));
 
 		JButton btnLogin = new JButton("Log in");
+		btnLogin.setFont(fira.deriveFont(12f));
 		GroupLayout gl_content = new GroupLayout(content);
 		gl_content.setHorizontalGroup(gl_content.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_content.createSequentialGroup().addContainerGap()

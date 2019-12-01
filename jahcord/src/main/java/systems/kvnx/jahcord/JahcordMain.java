@@ -1,6 +1,9 @@
 package systems.kvnx.jahcord;
 
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -22,12 +25,16 @@ import com.formdev.flatlaf.json.ParseException;
 
 public class JahcordMain {
 
-	public static void main(String[] args) throws ParseException, IOException {
+	public static void main(String[] args) throws ParseException, IOException, FontFormatException {
 
-		FlatLaf theme = IntelliJTheme.createLaf(JahcordMain.class.getClassLoader().getResourceAsStream("Dracula.theme.json"));
+		FlatLaf theme = IntelliJTheme.createLaf(JahcordMain.class.getClassLoader().getResourceAsStream("Material Oceanic.theme.json"));
+		InputStream is = LoginForm.class.getClassLoader().getResourceAsStream("FiraCode-Regular.ttf");
+		Font fira = Font.createFont(Font.TRUETYPE_FONT, is);
 
 		try {
 			UIManager.setLookAndFeel(theme);
+			UIManager.put("OptionPane.messageFont", fira.deriveFont(12f));
+			UIManager.put("OptionPane.buttonFont", fira.deriveFont(12f));
 		} catch (UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}

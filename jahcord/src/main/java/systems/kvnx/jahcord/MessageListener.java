@@ -11,15 +11,25 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
  */
 
 public class MessageListener extends ListenerAdapter {
+	
+	private MainInterface main;
+	
+	public MessageListener(MainInterface main) {
+		this.main = main;
+	}
 
 	@Override
 	public void onMessageReceived(MessageReceivedEvent event) {
 		
 		if (event.isFromType(ChannelType.TEXT)) {
-			System.out.printf("[%s][%s] %#s: %s%n", event.getGuild().getName(), event.getChannel().getName(),
+			String text = String.format("[%s][%s] %#s: %s%n", event.getGuild().getName(), event.getChannel().getName(),
 					event.getAuthor(), event.getMessage().getContentDisplay());
+			System.out.println(text);
+			main.chat.setText(main.chat.getText() + text);
 		} else {
-			System.out.printf("[PM] %#s: %s%n", event.getAuthor(), event.getMessage().getContentDisplay());
+			String text = String.format("[PM] %#s: %s%n", event.getAuthor(), event.getMessage().getContentDisplay());
+			System.out.println(text);
+			main.chat.setText(main.chat.getText() + text);
 		}
 		
 	}

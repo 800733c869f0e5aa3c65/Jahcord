@@ -29,7 +29,9 @@ public class Login {
 	public boolean init() {
 		
 		try {
-			jda = new JDABuilder(AccountType.CLIENT).setToken(token).addEventListeners(new MessageListener()).build().awaitReady();
+			jda = new JDABuilder(AccountType.CLIENT).setToken(token).build().awaitReady();
+			MainInterface main = new MainInterface(jda);
+			jda.addEventListener(new MessageListener(main));
 		} catch (LoginException e) {
 			e.printStackTrace();
 			return false;
@@ -37,7 +39,6 @@ public class Login {
 			e.printStackTrace();
 		}
 		
-		MainInterface main = new MainInterface();
 		
 		return true;
 		
