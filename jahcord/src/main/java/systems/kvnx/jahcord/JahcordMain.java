@@ -2,11 +2,13 @@ package systems.kvnx.jahcord;
 
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -19,16 +21,25 @@ import com.formdev.flatlaf.json.ParseException;
 /**
  * 
  * @author kvnx
- * This class handles logging in
+ * This class handles logging in and loading configurations
  *
  */
 
 public class JahcordMain {
 
 	public static void main(String[] args) throws ParseException, IOException, FontFormatException {
+		
+		String themeName = "/Material Lighter.theme.json";
+		
+		InputStream file = JahcordMain.class.getResourceAsStream("/config.txt");
+		if (file != null) {
+			Scanner cfg = new Scanner(JahcordMain.class.getResourceAsStream("/config.txt"));
+			themeName = cfg.nextLine().trim();
+			cfg.close();
+		}
 
-		FlatLaf theme = IntelliJTheme.createLaf(JahcordMain.class.getClassLoader().getResourceAsStream("Material Oceanic.theme.json"));
-		InputStream is = LoginForm.class.getClassLoader().getResourceAsStream("FiraCode-Regular.ttf");
+		FlatLaf theme = IntelliJTheme.createLaf(JahcordMain.class.getResourceAsStream(themeName));
+		InputStream is = JahcordMain.class.getResourceAsStream("/FiraCode-Regular.ttf");
 		Font fira = Font.createFont(Font.TRUETYPE_FONT, is);
 
 		try {

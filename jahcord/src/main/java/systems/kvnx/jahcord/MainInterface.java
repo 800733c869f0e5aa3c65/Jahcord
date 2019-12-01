@@ -13,6 +13,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
 import net.dv8tion.jda.api.JDA;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainInterface extends JFrame {
 
@@ -41,6 +43,12 @@ public class MainInterface extends JFrame {
 		JToolBar toolBar = new JToolBar();
 		
 		JButton btnSend = new JButton("Send");
+		btnSend.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				client.getGuilds().get(0).getTextChannels().get(0).sendMessage(input.getText()).queue();
+				input.setText("");
+			}
+		});
 		
 		input = new JTextField();
 		input.setColumns(10);
@@ -75,4 +83,5 @@ public class MainInterface extends JFrame {
 		setVisible(true);
 		
 	}
+	
 }

@@ -86,7 +86,7 @@ public class LoginForm extends JFrame {
 
 		btnLogin.addActionListener(new ActionListener() {
 
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 				token = textFieldToken.getText().trim();
 				if (token.matches("[MN][A-Za-z\\d]{23}\\.[\\w-]{6}\\.[\\w-]{27}")) {
 					setVisible(false);
