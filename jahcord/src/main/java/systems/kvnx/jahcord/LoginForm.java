@@ -83,7 +83,13 @@ public class LoginForm extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				token = textFieldToken.getText().trim();
 				if (token.matches("[MN][A-Za-z\\d]{23}\\.[\\w-]{6}\\.[\\w-]{27}")) {
-					dispose();
+					setVisible(false);
+					Login login = new Login(token);
+					if (!login.init()) {
+						login = null;
+						JOptionPane.showMessageDialog(null, "Invalid token.", "Error", JOptionPane.PLAIN_MESSAGE);
+						setVisible(true);
+					}
 				} else {
 					JOptionPane.showMessageDialog(null, "Invalid token format.", "Error", JOptionPane.PLAIN_MESSAGE);
 				}
