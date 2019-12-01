@@ -5,7 +5,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -16,7 +15,8 @@ import com.formdev.flatlaf.json.ParseException;
 
 /**
  * 
- * @author kvnx This class handles logging in
+ * @author kvnx
+ * This class handles logging in
  *
  */
 

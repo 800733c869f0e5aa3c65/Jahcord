@@ -13,6 +13,12 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
+/**
+ * 
+ * @author kvnx
+ *
+ */
+
 public class LoginForm extends JFrame {
 
 	private JPanel content;
