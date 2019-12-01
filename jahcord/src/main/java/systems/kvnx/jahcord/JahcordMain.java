@@ -22,18 +22,16 @@ public class JahcordMain {
 	public static void main(String[] args) throws ParseException, IOException {
 		
 		
-		FlatLaf theme = IntelliJTheme.createLaf(JahcordMain.class.getClassLoader().getResourceAsStream("Material Deep Ocean.theme.json"));
+		FlatLaf theme = IntelliJTheme.createLaf(JahcordMain.class.getClassLoader().getResourceAsStream("Material Oceanic.theme.json"));
 		LoginForm loginForm = new LoginForm(theme);
 		loginForm.addWindowListener(new WindowListener() {
 
 			@Override
-			public void windowActivated(WindowEvent arg0) {
-				System.out.println("Login form opened.");
-			}
+			public void windowActivated(WindowEvent arg0) {}
 
 			@Override
 			public void windowClosed(WindowEvent arg0) {
-//				System.out.println("Login form closed.");
+				System.out.println("Login form closed.");
 				token = loginForm.getToken();
 				Login login = new Login(token);
 			}
@@ -47,7 +45,9 @@ public class JahcordMain {
 			@Override
 			public void windowIconified(WindowEvent arg0) {} 
 			@Override
-			public void windowOpened(WindowEvent arg0) {}
+			public void windowOpened(WindowEvent arg0) {
+				System.out.println("Login form opened.");
+			}
 			
 		});
 		
