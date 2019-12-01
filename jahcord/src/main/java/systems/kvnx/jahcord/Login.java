@@ -34,6 +34,7 @@ public class Login {
 			jda.addEventListener(new MessageListener(main));
 		} catch (LoginException e) {
 			e.printStackTrace();
+			jda.shutdownNow();
 			return false;
 		} catch (InterruptedException e) {
 			e.printStackTrace();

@@ -54,25 +54,34 @@ public class LoginForm extends JFrame {
 		JButton btnLogin = new JButton("Log in");
 		btnLogin.setFont(fira.deriveFont(12f));
 		GroupLayout gl_content = new GroupLayout(content);
-		gl_content.setHorizontalGroup(gl_content.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_content.createSequentialGroup().addContainerGap()
-						.addGroup(gl_content.createParallelGroup(Alignment.LEADING)
+		gl_content.setHorizontalGroup(
+			gl_content.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_content.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_content.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_content.createSequentialGroup()
+							.addComponent(textFieldToken, GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
+							.addContainerGap())
+						.addGroup(gl_content.createSequentialGroup()
+							.addGroup(gl_content.createParallelGroup(Alignment.TRAILING)
 								.addGroup(gl_content.createSequentialGroup()
-										.addGroup(gl_content.createParallelGroup(Alignment.LEADING)
-												.addComponent(textFieldToken, GroupLayout.DEFAULT_SIZE, 454,
-														Short.MAX_VALUE)
-												.addComponent(lblToken))
-										.addContainerGap())
-								.addGroup(Alignment.TRAILING,
-										gl_content.createSequentialGroup().addGap(188).addComponent(btnLogin,
-												GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-												.addGap(187)))));
-		gl_content.setVerticalGroup(gl_content.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_content.createSequentialGroup().addContainerGap().addComponent(lblToken)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(textFieldToken, GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(btnLogin, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE).addGap(7)));
+									.addGap(188)
+									.addComponent(btnLogin, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addGap(187))
+								.addComponent(lblToken, Alignment.LEADING))
+							.addGap(14))))
+		);
+		gl_content.setVerticalGroup(
+			gl_content.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_content.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblToken)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(textFieldToken, GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnLogin, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+					.addGap(7))
+		);
 		content.setLayout(gl_content);
 
 		btnLogin.addActionListener(new ActionListener() {

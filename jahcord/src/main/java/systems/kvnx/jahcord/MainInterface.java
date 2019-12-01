@@ -2,17 +2,17 @@ package systems.kvnx.jahcord;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
 import javax.swing.JToolBar;
+import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
 import net.dv8tion.jda.api.JDA;
-
-import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JButton;
-import javax.swing.JTextPane;
 
 public class MainInterface extends JFrame {
 
@@ -21,7 +21,7 @@ public class MainInterface extends JFrame {
 	private JDA client;
 	private JTextField input;
 	
-	public JTextPane chat;
+	public JTextArea chat;
 
 	/**
 	 * Create the frame.
@@ -45,33 +45,34 @@ public class MainInterface extends JFrame {
 		input = new JTextField();
 		input.setColumns(10);
 		
-		chat = new JTextPane();
+		chat = new JTextArea();
+		chat.setLineWrap(true);
 		chat.setEditable(false);
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+		JScrollPane scroll = new JScrollPane(chat);
+		GroupLayout layout = new GroupLayout(contentPane);
+		layout.setHorizontalGroup(
+			layout.createParallelGroup(Alignment.LEADING)
 				.addComponent(toolBar, GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
-				.addGroup(gl_contentPane.createSequentialGroup()
+				.addGroup(layout.createSequentialGroup()
 					.addComponent(input, GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnSend))
-				.addComponent(chat, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+				.addComponent(scroll, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
 		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
+		layout.setVerticalGroup(
+			layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup()
 					.addComponent(toolBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(chat, GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+					.addComponent(scroll, GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnSend)
 						.addComponent(input, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 		);
-		contentPane.setLayout(gl_contentPane);
+		contentPane.setLayout(layout);
 		
 		setVisible(true);
 		
 	}
-	
 }
