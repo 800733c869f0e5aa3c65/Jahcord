@@ -9,7 +9,6 @@ import net.dv8tion.jda.api.JDABuilder;
 public class Login {
 	
 	private String token;
-	private JDA jda;
 	public Login (String token) {
 		
 		this.token = token;
@@ -23,7 +22,7 @@ public class Login {
 	public boolean init() {
 		
 		try {
-			jda = new JDABuilder(AccountType.CLIENT).setToken(token).addEventListeners(new MessageListener()).build().awaitReady();
+			JDA jda = new JDABuilder(AccountType.CLIENT).setToken(token).addEventListeners(new MessageListener()).build().awaitReady();
 		} catch (LoginException e) {
 			e.printStackTrace();
 			return false;
