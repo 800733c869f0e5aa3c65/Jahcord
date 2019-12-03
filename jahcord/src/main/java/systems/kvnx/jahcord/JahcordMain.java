@@ -2,7 +2,6 @@ package systems.kvnx.jahcord;
 
 import java.awt.Font;
 import java.awt.FontFormatException;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -21,7 +20,7 @@ import com.formdev.flatlaf.json.ParseException;
 /**
  * 
  * @author kvnx
- * This class handles logging in and loading configurations
+ * This class handles logging in and loading configurations.
  *
  */
 
@@ -29,7 +28,7 @@ public class JahcordMain {
 
 	public static void main(String[] args) throws ParseException, IOException, FontFormatException {
 		
-		String themeName = "/Material Lighter.theme.json";
+		String themeName = "/Material Deep Ocean Contrast.theme.json";
 		
 		InputStream file = JahcordMain.class.getResourceAsStream("/config.txt");
 		if (file != null) {

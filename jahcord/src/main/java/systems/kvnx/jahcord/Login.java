@@ -1,5 +1,8 @@
 package systems.kvnx.jahcord;
 
+import java.awt.FontFormatException;
+import java.io.IOException;
+
 import javax.security.auth.login.LoginException;
 
 import net.dv8tion.jda.api.AccountType;
@@ -32,11 +35,16 @@ public class Login {
 			jda = new JDABuilder(AccountType.CLIENT).setToken(token).build().awaitReady();
 			MainInterface main = new MainInterface(jda);
 			jda.addEventListener(new MessageListener(main));
+			System.out.println("a");
 		} catch (LoginException e) {
 			e.printStackTrace();
 			jda.shutdownNow();
 			return false;
 		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (FontFormatException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		

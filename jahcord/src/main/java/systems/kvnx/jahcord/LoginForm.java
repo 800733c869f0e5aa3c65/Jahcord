@@ -42,17 +42,17 @@ public class LoginForm extends JFrame {
 		setContentPane(content);
 		
 		InputStream is = LoginForm.class.getClassLoader().getResourceAsStream("FiraCode-Regular.ttf");
-		Font fira = Font.createFont(Font.TRUETYPE_FONT, is);
+		Font fira = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(12f);
 
 		JLabel lblToken = new JLabel("Token");
-		lblToken.setFont(fira.deriveFont(12f));
+		lblToken.setFont(fira);
 
 		textFieldToken = new JTextField();
 		textFieldToken.setColumns(10);
-		textFieldToken.setFont(fira.deriveFont(12f));
+		textFieldToken.setFont(fira);
 
 		JButton btnLogin = new JButton("Log in");
-		btnLogin.setFont(fira.deriveFont(12f));
+		btnLogin.setFont(fira);
 		GroupLayout gl_content = new GroupLayout(content);
 		gl_content.setHorizontalGroup(
 			gl_content.createParallelGroup(Alignment.LEADING)

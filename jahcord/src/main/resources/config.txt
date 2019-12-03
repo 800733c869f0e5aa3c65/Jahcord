@@ -1,1 +1,1 @@
-/Material Deep Ocean.theme.json
+/Material Deep Ocean Contrast.theme.json

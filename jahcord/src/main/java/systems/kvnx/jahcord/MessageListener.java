@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 /**
  * 
  * @author kvnx
+ * This class displays chat and accesses fields from Login's main interface.
  *
  */
 
