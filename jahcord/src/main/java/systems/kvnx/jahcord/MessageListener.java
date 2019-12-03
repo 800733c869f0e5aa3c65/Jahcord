@@ -23,10 +23,12 @@ public class MessageListener extends ListenerAdapter {
 	public void onMessageReceived(MessageReceivedEvent event) {
 		
 		if (event.isFromType(ChannelType.TEXT)) {
-			String text = String.format("[%s][%s] %#s: %s%n", event.getGuild().getName(), event.getChannel().getName(),
-					event.getAuthor(), event.getMessage().getContentDisplay());
-			System.out.println(text);
-			main.chat.setText(main.chat.getText() + text);
+			if (event.getChannel().getId().equals(main.channel.getId())) {
+				String text = String.format("[%s][%s] %#s: %s%n", event.getGuild().getName(), event.getChannel().getName(),
+						event.getAuthor(), event.getMessage().getContentDisplay());
+				System.out.println(text);
+				main.chat.setText(main.chat.getText() + text);
+			}
 		} else {
 			String text = String.format("[PM] %#s: %s%n", event.getAuthor(), event.getMessage().getContentDisplay());
 			System.out.println(text);

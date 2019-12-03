@@ -78,7 +78,7 @@ public class MainInterface extends JFrame {
 		chat.setFont(fira);
 		JScrollPane scroll = new JScrollPane(chat);
 		
-		JLabel lblHeader = new JLabel("[" + guild.getName() + "] #" + channel.getName() + " | " + channel.getTopic());
+		JLabel lblHeader = new JLabel("[" + guild.getName() + "] #" + channel.getName() + ((channel.getTopic() != null) ? " | " + channel.getTopic() : ""));
 		lblHeader.setFont(fira);
 		
 		menu = new JMenuBar();
@@ -99,7 +99,7 @@ public class MainInterface extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					channel = x;
 					System.out.println("Channel changed to " + x.getName());
-					lblHeader.setText("[" + guild.getName() + "] #" + channel.getName() + " | " + channel.getTopic());
+					lblHeader.setText("[" + guild.getName() + "] #" + channel.getName() + ((channel.getTopic() != null) ? " | " + channel.getTopic() : ""));
 				}
 				
 			});
@@ -121,7 +121,7 @@ public class MainInterface extends JFrame {
 					System.out.println("Channel changed to " + x.getName());
 					System.out.println("Guild changed to " + x.getName());
 					// change header text
-					lblHeader.setText("[" + guild.getName() + "] #" + channel.getName() + " | " + channel.getTopic());
+					lblHeader.setText("[" + guild.getName() + "] #" + channel.getName() + ((channel.getTopic() != null) ? " | " + channel.getTopic() : ""));
 					// reset the channel list on the menu
 					channelMenu.removeAll();
 					for (TextChannel x : guild.getTextChannels()) {
