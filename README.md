@@ -7,6 +7,7 @@ Java Swing Discord client.
 
 ## Missing features
 - Channel message history (seeing previous messages).
+- Settings screen.
 - Private messaging.
 - File sending.
 - Emote selection.
