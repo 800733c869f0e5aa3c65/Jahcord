@@ -3,7 +3,7 @@ Java Swing Discord client.
 
 ## Notes
 - This is probably against the Discord TOS. I cannot recommend that you actually use this without risk.
-- The library also seems to fail for user accounts (or takes an incredibly long time to load) when in a large number of group chats?? (Works fine on an account in only 1 but not one with many.)
+- The library also seems to fail for user accounts (or takes an incredibly long time to load) when in a large number of group chats??
 
 ## Missing features
 - Channel message history (seeing previous messages).
