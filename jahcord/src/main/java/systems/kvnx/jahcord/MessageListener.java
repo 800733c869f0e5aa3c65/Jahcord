@@ -24,8 +24,7 @@ public class MessageListener extends ListenerAdapter {
 		
 		if (event.isFromType(ChannelType.TEXT)) {
 			if (event.getChannel().getId().equals(main.channel.getId())) {
-				String text = String.format("[%s][%s] %#s: %s%n", event.getGuild().getName(), event.getChannel().getName(),
-						event.getAuthor(), event.getMessage().getContentDisplay());
+				String text = String.format("%#s: %s%n", event.getAuthor(), event.getMessage().getContentDisplay());
 //				System.out.println(text);
 				main.chat.append(text);
 			}

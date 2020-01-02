@@ -82,7 +82,7 @@ public class MainInterface extends JFrame {
 		for (int i = mh.size() - 1; i >= 0; i--) {
 			
 			Message m = mh.get(i);
-			String text = String.format("[%s][%s] %#s: %s%n", m.getGuild().getName(), m.getChannel().getName(), m.getAuthor(), m.getContentDisplay());
+			String text = String.format("%#s: %s%n", m.getAuthor(), m.getContentDisplay());
 			chat.append(text);
 				
 		}
@@ -129,7 +129,7 @@ public class MainInterface extends JFrame {
 					for (int i = mh.size() - 1; i >= 0; i--) {
 						
 						Message m = mh.get(i);
-						String text = String.format("[%s][%s] %#s: %s%n", m.getGuild().getName(), m.getChannel().getName(), m.getAuthor(), m.getContentDisplay());
+						String text = String.format("%#s: %s%n", m.getAuthor(), m.getContentDisplay());
 						chat.append(text);
 							
 					}
@@ -191,7 +191,7 @@ public class MainInterface extends JFrame {
 								for (int i = mh.size() - 1; i >= 0; i--) {
 									
 									Message m = mh.get(i);
-									String text = String.format("[%s][%s] %#s: %s%n", m.getGuild().getName(), m.getChannel().getName(), m.getAuthor(), m.getContentDisplay());
+									String text = String.format("%#s: %s%n", m.getAuthor(), m.getContentDisplay());
 									chat.append(text);
 										
 								}
@@ -219,7 +219,7 @@ public class MainInterface extends JFrame {
 					for (int i = mh.size() - 1; i >= 0; i--) {
 						
 						Message m = mh.get(i);
-						String text = String.format("[%s][%s] %#s: %s%n", m.getGuild().getName(), m.getChannel().getName(), m.getAuthor(), m.getContentDisplay());
+						String text = String.format("%#s: %s%n", m.getAuthor(), m.getContentDisplay());
 						chat.append(text);
 							
 					}
