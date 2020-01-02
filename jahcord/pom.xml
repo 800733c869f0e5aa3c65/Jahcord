@@ -5,7 +5,7 @@
 
 	<groupId>systems.kvnx</groupId>
 	<artifactId>jahcord</artifactId>
-	<version>0.9.0</version>
+	<version>0.9.1</version>
 	<packaging>jar</packaging>
 
 	<name>jahcord</name>
@@ -33,7 +33,7 @@
 		<dependency>
 			<groupId>net.dv8tion</groupId>
 			<artifactId>JDA</artifactId>
-			<version>4.0.0_68</version>
+			<version>4.1.0_90</version>
 		</dependency>
 		<dependency>
 			<groupId>com.formdev</groupId>
