@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,7 +27,6 @@ import javax.swing.border.EmptyBorder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.MessageHistory;
 import net.dv8tion.jda.api.entities.TextChannel;
 
 public class MainInterface extends JFrame {
@@ -53,11 +53,13 @@ public class MainInterface extends JFrame {
 		this.channel = guild.getTextChannels().get(0);
 		
 		setTitle("Jahcord | " + client.getSelfUser().getAsTag());
+		ImageIcon icon = new ImageIcon(MainInterface.class.getClassLoader().getResource("jahcord_icon.png"));
+		setIconImage(icon.getImage());
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 650, 500);
 		
-		InputStream is = LoginForm.class.getClassLoader().getResourceAsStream("FiraCode-Regular.ttf");
+		InputStream is = MainInterface.class.getClassLoader().getResourceAsStream("FiraCode-Regular.ttf");
 		Font fira = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(12f);
 		
 		JButton btnSend = new JButton("Send");

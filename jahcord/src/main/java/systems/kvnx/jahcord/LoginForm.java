@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -34,6 +35,8 @@ public class LoginForm extends JFrame {
 	public LoginForm() throws FontFormatException, IOException {
 
 		setTitle("Login - Jahcord");
+		ImageIcon icon = new ImageIcon(MainInterface.class.getClassLoader().getResource("jahcord_icon.png"));
+		setIconImage(icon.getImage());
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 150);
