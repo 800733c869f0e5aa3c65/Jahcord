@@ -17,3 +17,4 @@ Java Swing Discord client.
 - [JDA](https://github.com/DV8FromTheWorld/JDA)
 - [FlatLAF](https://github.com/JFormDesigner/FlatLaf)
 - Themes from [here](https://github.com/mallowigi/material-theme-ui-lite)
+- [Fira Code](https://github.com/tonsky/FiraCode)
