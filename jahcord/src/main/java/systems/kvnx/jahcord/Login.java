@@ -8,6 +8,7 @@ import javax.security.auth.login.LoginException;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.utils.ChunkingFilter;
 
 /**
  * 
@@ -32,7 +33,7 @@ public class Login {
 	public boolean init() {
 		
 		try {
-			jda = new JDABuilder(AccountType.CLIENT).setToken(token).build().awaitReady();
+			jda = new JDABuilder(AccountType.CLIENT).setToken(token).setChunkingFilter(ChunkingFilter.NONE).build().awaitReady();
 			MainInterface main = new MainInterface(jda);
 			jda.addEventListener(new MessageListener(main));
 			System.out.println("a");
