@@ -6,11 +6,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -23,8 +25,9 @@ import javax.swing.border.EmptyBorder;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.MessageHistory;
 import net.dv8tion.jda.api.entities.TextChannel;
-import javax.swing.JLabel;
 
 public class MainInterface extends JFrame {
 
@@ -46,10 +49,10 @@ public class MainInterface extends JFrame {
 	public MainInterface(JDA client) throws FontFormatException, IOException {
 		
 		this.client = client;
-		this.guild = client.getGuilds().get(1);
-		this.channel = guild.getTextChannels().get(3);
+		this.guild = client.getGuilds().get(0);
+		this.channel = guild.getTextChannels().get(0);
 		
-		setTitle("Jahcord");
+		setTitle("Jahcord | " + client.getSelfUser().getAsTag());
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 650, 500);
@@ -75,6 +78,14 @@ public class MainInterface extends JFrame {
 		chat.setEditable(false);
 		chat.setFont(fira);
 		JScrollPane scroll = new JScrollPane(chat);
+		List<Message> mh = channel.getHistory().retrievePast(10).complete();
+		for (int i = mh.size() - 1; i >= 0; i--) {
+			
+			Message m = mh.get(i);
+			String text = String.format("[%s][%s] %#s: %s%n", m.getGuild().getName(), m.getChannel().getName(), m.getAuthor(), m.getContentDisplay());
+			chat.append(text);
+				
+		}
 		
 		JLabel lblHeader = new JLabel("[" + guild.getName() + "] #" + channel.getName() + ((channel.getTopic() != null) ? " | " + channel.getTopic() : ""));
 		lblHeader.setFont(fira);
@@ -95,6 +106,9 @@ public class MainInterface extends JFrame {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
+					
+					chat.setText("");
+					
 					channel = x;
 					System.out.println("Channel changed to " + x.getName());
 					lblHeader.setText("[" + guild.getName() + "] #" + channel.getName() + ((channel.getTopic() != null) ? " | " + channel.getTopic() : ""));
@@ -110,6 +124,16 @@ public class MainInterface extends JFrame {
 						input.setEnabled(true);
 						
 					}
+					
+					List<Message> mh = channel.getHistory().retrievePast(10).complete();
+					for (int i = mh.size() - 1; i >= 0; i--) {
+						
+						Message m = mh.get(i);
+						String text = String.format("[%s][%s] %#s: %s%n", m.getGuild().getName(), m.getChannel().getName(), m.getAuthor(), m.getContentDisplay());
+						chat.append(text);
+							
+					}
+					
 				}
 				
 			});
@@ -126,6 +150,9 @@ public class MainInterface extends JFrame {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
+					
+					chat.setText("");
+					
 					guild = x;
 					channel = guild.getTextChannels().get(0);
 					System.out.println("Channel changed to " + x.getName());
@@ -141,6 +168,9 @@ public class MainInterface extends JFrame {
 							
 							@Override
 							public void actionPerformed(ActionEvent e) {
+								
+								chat.setText("");
+								
 								channel = x;
 								System.out.println("Channel changed to " + x.getName());
 								lblHeader.setText("[" + guild.getName() + "] #" + channel.getName() + " | " + channel.getTopic());
@@ -156,11 +186,42 @@ public class MainInterface extends JFrame {
 									input.setEnabled(true);
 									
 								}
+								
+								List<Message> mh = channel.getHistory().retrievePast(10).complete();
+								for (int i = mh.size() - 1; i >= 0; i--) {
+									
+									Message m = mh.get(i);
+									String text = String.format("[%s][%s] %#s: %s%n", m.getGuild().getName(), m.getChannel().getName(), m.getAuthor(), m.getContentDisplay());
+									chat.append(text);
+										
+								}
+								
 							}
 							
 						});
 						channelMenu.add(channelOption);
 						
+					}
+					
+					if (!channel.canTalk()) {
+						
+						input.setEnabled(false);
+						input.setText("No permission for this channel");
+						
+					} else {
+						
+						input.setText("");
+						input.setEnabled(true);
+						
+					}
+					
+					List<Message> mh = channel.getHistory().retrievePast(10).complete();
+					for (int i = mh.size() - 1; i >= 0; i--) {
+						
+						Message m = mh.get(i);
+						String text = String.format("[%s][%s] %#s: %s%n", m.getGuild().getName(), m.getChannel().getName(), m.getAuthor(), m.getContentDisplay());
+						chat.append(text);
+							
 					}
 					
 				}

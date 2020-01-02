@@ -36,7 +36,6 @@ public class Login {
 			jda = new JDABuilder(AccountType.CLIENT).setToken(token).setChunkingFilter(ChunkingFilter.NONE).build().awaitReady();
 			MainInterface main = new MainInterface(jda);
 			jda.addEventListener(new MessageListener(main));
-			System.out.println("a");
 		} catch (LoginException e) {
 			e.printStackTrace();
 			jda.shutdownNow();
