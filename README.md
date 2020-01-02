@@ -6,12 +6,12 @@ Java Swing Discord client.
 - The library also seems to fail for user accounts (or takes an incredibly long time to load) when in a large number of group chats??
 
 ## Missing features
-- Channel message history (seeing previous messages).
 - Settings screen.
-- Private messaging.
+- Responding to private messaging.
 - File sending.
 - Emote selection.
 - Unicode display.
+- Replace images with links
 
 ## Dependencies
 - [JDA](https://github.com/DV8FromTheWorld/JDA)
