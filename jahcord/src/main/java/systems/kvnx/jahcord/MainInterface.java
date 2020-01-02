@@ -54,10 +54,8 @@ public class MainInterface extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 650, 500);
 		
-		
 		InputStream is = LoginForm.class.getClassLoader().getResourceAsStream("FiraCode-Regular.ttf");
 		Font fira = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(12f);
-		
 		
 		JButton btnSend = new JButton("Send");
 		btnSend.setFont(fira);
@@ -100,6 +98,18 @@ public class MainInterface extends JFrame {
 					channel = x;
 					System.out.println("Channel changed to " + x.getName());
 					lblHeader.setText("[" + guild.getName() + "] #" + channel.getName() + ((channel.getTopic() != null) ? " | " + channel.getTopic() : ""));
+					
+					if (!channel.canTalk()) {
+						
+						input.setEnabled(false);
+						input.setText("No permission for this channel");
+						
+					} else {
+						
+						input.setText("");
+						input.setEnabled(true);
+						
+					}
 				}
 				
 			});
@@ -134,12 +144,25 @@ public class MainInterface extends JFrame {
 								channel = x;
 								System.out.println("Channel changed to " + x.getName());
 								lblHeader.setText("[" + guild.getName() + "] #" + channel.getName() + " | " + channel.getTopic());
+								
+								if (!channel.canTalk()) {
+									
+									input.setEnabled(false);
+									input.setText("No permission for this channel");
+									
+								} else {
+									
+									input.setText("");
+									input.setEnabled(true);
+									
+								}
 							}
 							
 						});
 						channelMenu.add(channelOption);
 						
 					}
+					
 				}
 				
 			});
