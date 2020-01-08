@@ -1,5 +1,6 @@
 # Jahcord
 Java Swing Discord client.
+Read about this [here](https://kvnx.systems/posts/jahcord)
 
 ## Notes
 - This is probably against the Discord TOS. I cannot recommend that you actually use this without risk.
